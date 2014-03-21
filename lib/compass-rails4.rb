@@ -75,11 +75,7 @@ module CompassRails4
     def configuration
       load_rails
       config = Compass::Configuration::Data.new('rails')
-      config.extend(Configuration::Default)
-      if asset_pipeline_enabled?
-        require "compass-rails4/configuration/asset_pipeline"
-        config.extend(Configuration::AssetPipeline)
-      end
+      config.extend(Configuration::AssetPipeline)
       config
     end
 
@@ -138,13 +134,6 @@ module CompassRails4
       config.top_level.project_type = :rails
       config
     end
-
-  def asset_pipeline_enabled?
-    return false unless rails_loaded?
-    return false if !rails_config.respond_to?(:assets)
-
-    rails_config.assets.enabled != false
-  end
 
   private
 
