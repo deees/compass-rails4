@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'compass', '~> 0.13.alpha.12'
   spec.add_dependency 'railties', '~> 4.0.0'
+  spec.add_dependency 'sprockets', '<= 2.11.0'
 
   spec.add_development_dependency 'rake'
 end
