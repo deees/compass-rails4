@@ -53,6 +53,10 @@ class Rails::Railtie::Configuration
 
           # Adds the fingerprinted asset to the public directory
           FileUtils.mkdir_p File.dirname(target)
+
+          logger = CompassRails4.sprockets.logger
+          logger.info("Writing #{target}") if logger
+
           asset.write_to target
         end
       end
