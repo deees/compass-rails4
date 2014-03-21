@@ -10,7 +10,7 @@ module Sass::Script::Functions
 
   def cachebust_generated_images
     generated_images_path = CompassRails4.root.join(Compass.configuration.generated_images_dir).to_s
-    sprockets_entries = CompassRails4.sprockets.send(:trail).index.instance_variable_get(:@entries)
+    sprockets_entries = CompassRails4.sprockets.send(:trail).instance_variable_get(:@entries)
     sprockets_entries.delete(generated_images_path) if sprockets_entries.has_key? generated_images_path
   end
 
