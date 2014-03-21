@@ -14,6 +14,10 @@ module CompassRails4
         File.join("app", "assets", "javascripts")
       end
 
+      def default_sass_dir
+        File.join("app", "assets", "stylesheets")
+      end
+
       def default_css_dir
         File.join('public', CompassRails4.prefix)
       end
@@ -22,20 +26,24 @@ module CompassRails4
         File.join(CompassRails4.prefix)
       end
 
+      def default_http_generated_images_path
+        default_http_path
+      end
+
       def default_http_images_path
-        "#{top_level.http_path}"
+        default_http_path
       end
 
       def default_http_javascripts_path
-        "#{top_level.http_path}"
+        default_http_path
       end
 
       def default_http_fonts_path
-        "#{top_level.http_path}"
+        default_http_path
       end
 
       def default_http_stylesheets_path
-        "#{top_level.http_path}"
+        default_http_path
       end
 
       def default_preferred_syntax
@@ -46,6 +54,13 @@ module CompassRails4
         CompassRails4.sprockets.paths
       end
 
+      def default_project_path
+        project_path = CompassRails4.root
+      end
+
+      def default_environment
+        CompassRails4.env
+      end
     end
   end
 end
